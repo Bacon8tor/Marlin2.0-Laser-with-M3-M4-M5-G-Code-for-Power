@@ -1,4 +1,5 @@
-This MARLIN Version is modified and optimized for use with a LaserEngraver-CNC Machine by McUtty
+I Adapted this to from McUtty's version to work with K40 
+//This MARLIN Version is modified and optimized for use with a LaserEngraver-CNC Machine by McUtty
 
 The Machine:
 ------------
@@ -22,13 +23,13 @@ Modifications of Configuration.h:
 - (578)  X_MIN_ENDSTOP_INVERTING true
 - (579)  Y_MIN_ENDSTOP_INVERTING true
 - (580)  Z_MIN_ENDSTOP_INVERTING false
-- (600)  #define X_DRIVER_TYPE  DRV8825
-- (601)  #define Y_DRIVER_TYPE  DRV8825
-- (604)  #define Y2_DRIVER_TYPE DRV8825
+- (600)  #define X_DRIVER_TYPE A4988 //DRV8825
+- (601)  #define Y_DRIVER_TYPE A4988 //DRV8825
+- (604)  #define Y2_DRIVER_TYPE A4988 //DRV8825
 - (657)  DEFAULT_AXIS_STEPS_PER_UNIT   { 200, 200, 400, 500 }
 - (889)  DISABLE_Z true
-- (934)  X_BED_SIZE 850
-- (935)  Y_BED_SIZE 850
+- (934)  X_BED_SIZE 200 //850
+- (935)  Y_BED_SIZE 350 //850
 
 
 Modifications of Configuration_adv.h
@@ -41,7 +42,7 @@ Modifications of Configuration_adv.h
 - (935)  #define MINIMUM_STEPPER_PULSE 2
 - (949)  #define MAXIMUM_STEPPER_RATE 250000
 - (1486) #define SPINDLE_LASER_ENABLE
-- (1491) SPINDLE_LASER_PWM_INVERT      false
+- (1491) SPINDLE_LASER_PWM_INVERT      true
 - (1492) SPINDLE_LASER_POWERUP_DELAY   1
 - (1493) SPINDLE_LASER_POWERDOWN_DELAY 1
 - (1512) #define SPEED_POWER_SLOPE      0.3922
