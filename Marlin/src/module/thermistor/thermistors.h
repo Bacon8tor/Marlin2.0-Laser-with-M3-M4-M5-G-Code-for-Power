@@ -103,6 +103,9 @@
 #if ANY_THERMISTOR_IS(66) // beta25 = 4500 K, R25 = 2.5 MOhm, Pull-up = 4.7 kOhm, "DyzeDesign 500 °C Thermistor"
   #include "thermistor_66.h"
 #endif
+#if ANY_THERMISTOR_IS(69) // Pull-up = 4.7 kOhm ,DS18B0 Water Proof Sensor for water temp K40 )
+  #include "thermistor_69.h"
+#endif
 #if ANY_THERMISTOR_IS(12) // beta25 = 4700 K, R25 = 100 kOhm, Pull-up = 4.7 kOhm, "Personal calibration for Makibox hot bed"
   #include "thermistor_12.h"
 #endif

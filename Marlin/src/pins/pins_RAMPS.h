@@ -286,8 +286,9 @@
 #endif
 
 // define digital pin 4 for the filament runout sensor. Use the RAMPS 1.4 digital input 4 on the servos connector
+//POSSIBLY USE THIS for lid opening to pause gcode so that can resume when closed
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN    4
+  #define FIL_RUNOUT_PIN    SERVO3_PIN
 #endif
 
 #ifndef PS_ON_PIN
@@ -308,13 +309,15 @@
 //
 #if ENABLED(SPINDLE_LASER_ENABLE) && !PIN_EXISTS(SPINDLE_LASER_ENABLE)
   #if !defined(NUM_SERVOS) || NUM_SERVOS == 0 // try to use servo connector first
-    #define SPINDLE_LASER_ENABLE_PIN  4   // Pin should have a pullup/pulldown!
-    #define SPINDLE_LASER_PWM_PIN     44   // MUST BE HARDWARE PWM
-    #define SPINDLE_DIR_PIN           5
+    #define SPINDLE_LASER_ENABLE_PIN  SERVO2_PIN   // Pin should have a pullup/pulldown!
+    #define SPINDLE_LASER_PWM_PIN     SERVO1_PIN   // MUST BE HARDWARE PWM
+    #define SPINDLE_DIR_PIN           65
+    //#define COOLANT_FLOOD_PIN -1
+    //#define COOLANT_MIST_PIN -1
   #elif !(ENABLED(ULTRA_LCD) && ENABLED(NEWPANEL) \
       && (ENABLED(PANEL_ONE) || ENABLED(VIKI2) || ENABLED(miniVIKI) || ENABLED(MINIPANEL) || ENABLED(REPRAPWORLD_KEYPAD)))  // try to use AUX 2
-    #define SPINDLE_LASER_ENABLE_PIN 40   // Pin should have a pullup/pulldown!
-    #define SPINDLE_LASER_PWM_PIN    44   // MUST BE HARDWARE PWM
+    #define SPINDLE_LASER_ENABLE_PIN 42   // Pin should have a pullup/pulldown!
+    #define SPINDLE_LASER_PWM_PIN    SERVO1_PIN   // MUST BE HARDWARE PWM
     #define SPINDLE_DIR_PIN          65
   #endif
 #endif

@@ -77,6 +77,9 @@
  * M3   - Turn laser/spindle on, set spindle/laser speed/power, set rotation to clockwise
  * M4   - Turn laser/spindle on, set spindle/laser speed/power, set rotation to counter-clockwise
  * M5   - Turn laser/spindle off
+ * M7   - Turn mist coolant ON. (Requires COOLANT_CONTROL)
+ * M8   - Turn flood coolant ON. (Requires COOLANT_CONTROL)
+ * M9   - Turn coolant OFF. (Requires COOLANT_CONTROL)
  * M12  - Set up closed loop control system. More features coming soon. (Requires EXTERNAL_CLOSED_LOOP_CONTROLLER)
  * M17  - Enable/Power all stepper motors
  * M18  - Disable all stepper motors; same as M84
@@ -352,6 +355,8 @@ private:
 
   static void G4();
 
+ 
+
   #if ENABLED(BEZIER_CURVE_SUPPORT)
     static void G5();
   #endif
@@ -439,6 +444,16 @@ private:
   #if ENABLED(SPINDLE_LASER_ENABLE)
     static void M3_M4(bool is_M3);
     static void M5();
+  #endif
+
+  #if ENABLED(COOLANT_CONTROL)
+    #if ENABLED(COOLANT_MIST)
+      static void M7();
+    #endif
+    #if ENABLED(COOLANT_FLOOD)
+      static void M8();
+    #endif
+    static void M9();
   #endif
 
   #if ENABLED(EXTERNAL_CLOSED_LOOP_CONTROLLER)

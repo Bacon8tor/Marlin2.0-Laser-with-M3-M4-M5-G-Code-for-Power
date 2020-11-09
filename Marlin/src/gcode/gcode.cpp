@@ -295,6 +295,17 @@ void GcodeSuite::process_parsed_command(
         case 4: M3_M4(false); break;                              // M4: turn spindle/laser on, set laser/spindle power/speed, set rotation direction CCW
         case 5: M5(); break;                                      // M5 - turn spindle/laser off
       #endif
+      
+      #if ENABLED(COOLANT_CONTROL)
+        #if ENABLED(COOLANT_MIST)
+          case 7: M7(); break;                                    // M7: Mist coolant ON
+        #endif
+        #if ENABLED(COOLANT_FLOOD)
+          case 8: M8(); break;                                    // M8: Flood coolant ON
+        #endif
+        case 9: M9(); break;                                      // M9: Coolant OFF
+      #endif  
+
 
       #if ENABLED(EXTERNAL_CLOSED_LOOP_CONTROLLER)
         case 12: M12(); break;                                    // M12: Synchronize and optionally force a CLC set
