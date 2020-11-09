@@ -574,10 +574,10 @@
  * LED Control Menu
  * Enable this feature to add LED Control to the LCD menu
  */
-//#define LED_CONTROL_MENU
-#if ENABLED(LED_CONTROL_MENU)
+#define LED_CONTROL_MENU
+//#if ENABLED(LED_CONTROL_MENU)
   #define LED_COLOR_PRESETS                 // Enable the Preset Color menu option
-  #if ENABLED(LED_COLOR_PRESETS)
+ // #if ENABLED(LED_COLOR_PRESETS)
     #define LED_USER_PRESET_RED        255  // User defined RED value
     #define LED_USER_PRESET_GREEN      128  // User defined GREEN value
     #define LED_USER_PRESET_BLUE         0  // User defined BLUE value
