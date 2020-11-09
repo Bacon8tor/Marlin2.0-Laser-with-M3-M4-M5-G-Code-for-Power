@@ -227,6 +227,7 @@
   #endif
 #endif
 
+
 //
 // Heaters / Fans
 //
@@ -309,19 +310,24 @@
 //
 #if ENABLED(SPINDLE_LASER_ENABLE) && !PIN_EXISTS(SPINDLE_LASER_ENABLE)
   #if !defined(NUM_SERVOS) || NUM_SERVOS == 0 // try to use servo connector first
-    #define SPINDLE_LASER_ENABLE_PIN  SERVO2_PIN   // Pin should have a pullup/pulldown!
-    #define SPINDLE_LASER_PWM_PIN     SERVO1_PIN   // MUST BE HARDWARE PWM
+    #define SPINDLE_LASER_ENABLE_PIN  5   // Pin should have a pullup/pulldown!
+    #define SPINDLE_LASER_PWM_PIN     6   // MUST BE HARDWARE PWM
     #define SPINDLE_DIR_PIN           65
     //#define COOLANT_FLOOD_PIN -1
     //#define COOLANT_MIST_PIN -1
   #elif !(ENABLED(ULTRA_LCD) && ENABLED(NEWPANEL) \
       && (ENABLED(PANEL_ONE) || ENABLED(VIKI2) || ENABLED(miniVIKI) || ENABLED(MINIPANEL) || ENABLED(REPRAPWORLD_KEYPAD)))  // try to use AUX 2
     #define SPINDLE_LASER_ENABLE_PIN 42   // Pin should have a pullup/pulldown!
-    #define SPINDLE_LASER_PWM_PIN    SERVO1_PIN   // MUST BE HARDWARE PWM
+    #define SPINDLE_LASER_PWM_PIN    6   // MUST BE HARDWARE PWM
     #define SPINDLE_DIR_PIN          65
   #endif
 #endif
 
+
+#if ENABLED(COOLANT_CONTROL)
+  #define COOLANT_FLOOD_PIN 4
+  #define COOLANT_MIST_PIN 11
+#endif
 //
 // Průša i3 MK2 Multiplexer Support
 //

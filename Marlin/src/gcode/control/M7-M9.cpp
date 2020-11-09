@@ -43,7 +43,7 @@
    */
   void GcodeSuite::M8() {
     planner.synchronize();                              // Wait for move to arrive
-    digitalWrite(COOLANT_FLOOD_PIN, !(COOLANT_FLOOD_INVERT));  // Turn on Flood coolant
+    digitalWrite(COOLANT_FLOOD_PIN, 255);  // Turn on Flood coolant
   }
 #endif
 
@@ -56,7 +56,7 @@ void GcodeSuite::M9() {
     analogWrite(COOLANT_MIST_PIN, 0);   // Turn off Mist coolant
   #endif
   #if ENABLED(COOLANT_FLOOD)
-    digitalWrite(COOLANT_FLOOD_PIN, COOLANT_FLOOD_INVERT); // Turn off Flood coolant
+    digitalWrite(COOLANT_FLOOD_PIN, 0); // Turn off Flood coolant
   #endif
 }
 
