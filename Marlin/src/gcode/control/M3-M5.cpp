@@ -118,7 +118,7 @@ void GcodeSuite::M3_M4(bool is_M3) {
         WRITE(SPINDLE_LASER_ENABLE_PIN, SPINDLE_LASER_ENABLE_INVERT);                                     // turn spindle on (active low)
         analogWrite(SPINDLE_LASER_PWM_PIN, ocr_val & 0xFF);   
         //leds.set_yellow();                                         // only write low byte
-        leds.set_color(MakeLEDColor(255,(255 - ocr_val),0,0,120));
+       // leds.set_color(MakeLEDColor(255,(255 - ocr_val),0,0,120));
         delay_for_power_up();
       }
     }
@@ -136,7 +136,7 @@ void GcodeSuite::M5() {
   WRITE(SPINDLE_LASER_ENABLE_PIN, !SPINDLE_LASER_ENABLE_INVERT);
   #if ENABLED(SPINDLE_LASER_PWM)
     analogWrite(SPINDLE_LASER_PWM_PIN, SPINDLE_LASER_PWM_INVERT ? 255 : 0);
-     leds.set_off();
+     //leds.set_off();
   #endif
   delay_for_power_down();
 }
