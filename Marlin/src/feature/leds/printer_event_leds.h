@@ -52,11 +52,6 @@ public:
     FORCE_INLINE static void onHeatersOff() { leds.set_off(); }
   #endif
 
-  #if ENABLED(SPINDLE_LASER_ENABLE)
-    FORCE_INLINE static void onSpindle() { leds.set_white(); }
-    //static void onSpindle(const float &start, const float &current, const float &target);
-  #endif
-
   #if ENABLED(SDSUPPORT)
 
     FORCE_INLINE static void onPrintCompleted() {

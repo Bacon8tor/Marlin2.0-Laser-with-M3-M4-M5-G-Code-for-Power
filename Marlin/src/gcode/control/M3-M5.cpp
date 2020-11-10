@@ -23,7 +23,7 @@
 #include "../../inc/MarlinConfig.h"
 
 #if ENABLED(SPINDLE_LASER_ENABLE)
-#include "../../feature/leds/leds.h"
+
 #include "../gcode.h"
 #include "../../module/stepper.h"
 
@@ -105,7 +105,6 @@ void GcodeSuite::M3_M4(bool is_M3) {
         WRITE(SPINDLE_LASER_ENABLE_PIN, !SPINDLE_LASER_ENABLE_INVERT);                                    // turn spindle off (active low)
         analogWrite(SPINDLE_LASER_PWM_PIN, SPINDLE_LASER_PWM_INVERT ? 255 : 0);                           // only write low byte
         delay_for_power_down();
-        leds.set_off();
       }
       else {
         int16_t ocr_val = (spindle_laser_power - (SPEED_POWER_INTERCEPT)) * (1.0f / (SPEED_POWER_SLOPE));  // convert RPM to PWM duty cycle
@@ -116,9 +115,13 @@ void GcodeSuite::M3_M4(bool is_M3) {
           ocr_val = (SPEED_POWER_MAX - (SPEED_POWER_INTERCEPT)) * (1.0f / (SPEED_POWER_SLOPE));            // limit to max RPM
         if (SPINDLE_LASER_PWM_INVERT) ocr_val = 255 - ocr_val;
         WRITE(SPINDLE_LASER_ENABLE_PIN, SPINDLE_LASER_ENABLE_INVERT);                                     // turn spindle on (active low)
+<<<<<<< HEAD
         analogWrite(SPINDLE_LASER_PWM_PIN, ocr_val & 0xFF);   
         //leds.set_yellow();                                         // only write low byte
        // leds.set_color(MakeLEDColor(255,(255 - ocr_val),0,0,120));
+=======
+        analogWrite(SPINDLE_LASER_PWM_PIN, ocr_val & 0xFF);                                               // only write low byte
+>>>>>>> parent of 3361a38... leds working
         delay_for_power_up();
       }
     }
@@ -136,7 +139,10 @@ void GcodeSuite::M5() {
   WRITE(SPINDLE_LASER_ENABLE_PIN, !SPINDLE_LASER_ENABLE_INVERT);
   #if ENABLED(SPINDLE_LASER_PWM)
     analogWrite(SPINDLE_LASER_PWM_PIN, SPINDLE_LASER_PWM_INVERT ? 255 : 0);
+<<<<<<< HEAD
      //leds.set_off();
+=======
+>>>>>>> parent of 3361a38... leds working
   #endif
   delay_for_power_down();
 }

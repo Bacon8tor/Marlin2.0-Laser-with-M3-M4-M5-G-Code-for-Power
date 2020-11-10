@@ -157,12 +157,17 @@ public:
   static void set_white();
   FORCE_INLINE static void set_off()   { set_color(LEDColorOff()); }
   FORCE_INLINE static void set_green() { set_color(LEDColorGreen()); }
+<<<<<<< HEAD
   FORCE_INLINE static void set_red()      { set_color(LEDColorRed()); }
   FORCE_INLINE static void set_orange()   { set_color(LEDColorOrange()); }
   FORCE_INLINE static void set_yellow()   { set_color(LEDColorYellow()); }
   FORCE_INLINE static void set_blue()     { set_color(LEDColorBlue()); }
   
 
+=======
+
+  #if ENABLED(LED_COLOR_PRESETS)
+>>>>>>> parent of 3361a38... leds working
     static const LEDColor defaultLEDColor;
     FORCE_INLINE static void set_default()  { set_color(defaultLEDColor); }
    // FORCE_INLINE static void set_red()      { set_color(LEDColorRed()); }
