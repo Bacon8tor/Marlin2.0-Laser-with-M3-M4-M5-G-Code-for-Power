@@ -162,23 +162,23 @@ public:
   FORCE_INLINE static void set_yellow()   { set_color(LEDColorYellow()); }
   FORCE_INLINE static void set_blue()     { set_color(LEDColorBlue()); }
   
-  #if ENABLED(LED_COLOR_PRESETS)
+
     static const LEDColor defaultLEDColor;
     FORCE_INLINE static void set_default()  { set_color(defaultLEDColor); }
-    FORCE_INLINE static void set_red()      { set_color(LEDColorRed()); }
-    FORCE_INLINE static void set_orange()   { set_color(LEDColorOrange()); }
-    FORCE_INLINE static void set_yellow()   { set_color(LEDColorYellow()); }
-    FORCE_INLINE static void set_blue()     { set_color(LEDColorBlue()); }
+   // FORCE_INLINE static void set_red()      { set_color(LEDColorRed()); }
+  //  FORCE_INLINE static void set_orange()   { set_color(LEDColorOrange()); }
+   // FORCE_INLINE static void set_yellow()   { set_color(LEDColorYellow()); }
+   // FORCE_INLINE static void set_blue()     { set_color(LEDColorBlue()); }
     FORCE_INLINE static void set_indigo()   { set_color(LEDColorIndigo()); }
     FORCE_INLINE static void set_violet()   { set_color(LEDColorViolet()); }
-  #endif
 
-  #if ENABLED(LED_CONTROL_MENU)
+
+
     static LEDColor color; // last non-off color
     static bool lights_on; // the last set color was "on"
     static void toggle();  // swap "off" with color
     FORCE_INLINE static void update() { set_color(color); }
-  #endif
+
 };
 
 extern LEDLights leds;
